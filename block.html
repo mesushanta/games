@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Block Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.17/tailwind.min.css" integrity="sha512-yXagpXH0ulYCN8G/Wl7GK+XIpdnkh5fGHM5rOzG8Kb9Is5Ua8nZWRx5/RaKypcbSHc56mQe0GBG0HQIGTmd8bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+
+    <h1 class="text-4xl text-gray-700 font-light text-center my-5">Block Game</h1>
+
+    <div id="main" class="max-w-screen-lg mx-auto my-10 bg-gray-100 border border-gray-300" style="height: 550px; width: 550px;">
+
+    </div>
+
+    <div id="controller" class="text-center">
+
+      <button id="up" class="block mx-auto my-2 w-12 h-12 bg-blue-400 text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+      </button>
+
+      <button id="left" class="inline-block mx-6 my-2 my-2 w-12 h-12 bg-blue-400 text-white text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      </button>
+
+      <button id="right" class="inline-block mx-6 my-2 my-2 w-12 h-12 bg-blue-400 text-white ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </button>
+
+      <button id="down" class="block mx-auto my-2 my-2 w-12 h-12 bg-blue-400 text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">=
+
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </button>
+    </div>
+
+    <script src="js/block.js" charset="utf-8"></script>
+  </body>
+</html>
