@@ -10,11 +10,13 @@
   var obstacle2;
   var obstacle3;
   var obstacle4;
+  var score;
 
 
   function startGame() {
       myGameArea.start();
       myGamePiece = new component(50, 50, "#088a08", 250, 250, 1);
+      score = new component("30px", "Consolas", "black", 280, 40, "text");
       obstacle1 = new component(30, 30, "red", 100, 90, getRandomNumberBetween(1,8));
       obstacle2 = new component(30, 30, "red", 370, 50, getRandomNumberBetween(1,8));
       obstacle3 = new component(30, 30, "red", 290, 120, getRandomNumberBetween(1,8));
@@ -28,7 +30,7 @@
       this.canvas.height = 550;
       this.context = this.canvas.getContext("2d");
       document.getElementById('main').appendChild(this.canvas);
-      this.interval = setInterval(updateGameArea, 500);
+      this.interval = setInterval(updateGameArea, 200);
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
