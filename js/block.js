@@ -13,12 +13,12 @@
 
 
   function startGame() {
-    myGameArea.start();
-    myGamePiece = new component(50, 50, "#088a08", 250, 250, 1);
-    obstacle1 = new component(30, 30, "red", 100, 90, getRandomNumberBetween(1,8));
-    obstacle2 = new component(30, 30, "red", 370, 50, getRandomNumberBetween(1,8));
-    obstacle3 = new component(30, 30, "red", 290, 120, getRandomNumberBetween(1,8));
-    obstacle4 = new component(30, 30, "red", 300, 480, getRandomNumberBetween(1,8));
+      myGameArea.start();
+      myGamePiece = new component(50, 50, "#088a08", 250, 250, 1);
+      obstacle1 = new component(30, 30, "red", 100, 90, getRandomNumberBetween(1,8));
+      obstacle2 = new component(30, 30, "red", 370, 50, getRandomNumberBetween(1,8));
+      obstacle3 = new component(30, 30, "red", 290, 120, getRandomNumberBetween(1,8));
+      obstacle4 = new component(30, 30, "red", 300, 480, getRandomNumberBetween(1,8));
   }
 
   var myGameArea = {
@@ -28,7 +28,7 @@
       this.canvas.height = 550;
       this.context = this.canvas.getContext("2d");
       document.getElementById('main').appendChild(this.canvas);
-      this.interval = setInterval(updateGameArea, 100);
+      this.interval = setInterval(updateGameArea, 500);
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -68,7 +68,7 @@
       switch (this.dir) {
         case 1:
           if (this.y == 0){
-            this.dir = 2;
+            this.dir = 4;
           }
           else {
             this.x = this.x;
@@ -77,7 +77,7 @@
           break;
         case 2:
           if (this.y == 0 || this.x == 520){
-            this.dir = 3;
+            this.dir = 5;
           }
           else {
             this.x += 10;
@@ -86,7 +86,7 @@
           break;
         case 3:
           if (this.x == 520){
-            this.dir = 4;
+            this.dir = 6;
           }
           else {
             this.x += 10;
@@ -95,7 +95,7 @@
           break;
         case 4:
           if (this.x == 520 || this.y == 520){
-            this.dir = 4;
+            this.dir = 7;
           }
           else {
             this.x += 10;
@@ -104,7 +104,7 @@
           break;
         case 5:
           if (this.y == 520){
-            this.dir = 6;
+            this.dir = 8;
           }
           else {
             this.x = this.x;
@@ -113,7 +113,7 @@
           break;
         case 6:
           if (this.y == 520 || this.x == 0){
-            this.dir = 7;
+            this.dir = 1;
           }
           else {
             this.x -= 10;
@@ -122,7 +122,7 @@
           break;
         case 7:
           if (this.x == 0){
-            this.dir = 8;
+            this.dir = 2;
           }
           else {
             this.x -= 10;
@@ -131,7 +131,7 @@
           break;
         case 8:
           if (this.x == 0 || this.y == 0 || (this.x == 0 && this.y == 0)){
-            this.dir = 1;
+            this.dir = 3;
           }
           else {
             this.x -= 10;
@@ -141,6 +141,25 @@
 
     }
 
+    this.crashWith = function(otherobj) {
+    var myleft = this.x;
+    var myright = this.x + (this.width);
+    var mytop = this.y;
+    var mybottom = this.y + (this.height);
+    var otherleft = otherobj.x;
+    var otherright = otherobj.x + (otherobj.width);
+    var othertop = otherobj.y;
+    var otherbottom = otherobj.y + (otherobj.height);
+    var crash = true;
+    if ((mybottom < othertop) ||
+    (mytop > otherbottom) ||
+    (myright < otherleft) ||
+    (myleft > otherright)) {
+      crash = false;
+    }
+    return crash;
+  }
+
 
 
 
@@ -148,28 +167,46 @@
 
 
   function updateGameArea() {
-    myGameArea.clear();
 
-    myGamePiece.newPos();
-    myGamePiece.update();
+      if (myGamePiece.crashWith(obstacle1)) {
+        myGameArea.stop();
+        alert('finished');
+      }
+      else if(myGamePiece.crashWith(obstacle2)) {
+        myGameArea.stop();
+        alert('finished');
+      }
+      else if(myGamePiece.crashWith(obstacle3)) {
+        myGameArea.stop();
+        alert('finished');
+      }
+      else if(myGamePiece.crashWith(obstacle4)) {
+        myGameArea.stop();
+        alert('finished');
+      }
+      else {
+        myGameArea.clear();
+
+        myGamePiece.newPos();
+        myGamePiece.update();
 
 
-    obstacle1.obsPosition();
-    obstacle1.update();
+        obstacle1.obsPosition();
+        obstacle1.update();
 
 
-    obstacle2.obsPosition();
-    obstacle2.update();
+        obstacle2.obsPosition();
+        obstacle2.update();
 
 
-    obstacle3.obsPosition();
-    obstacle3.update();
+        obstacle3.obsPosition();
+        obstacle3.update();
 
 
-    obstacle4.obsPosition();
-    obstacle4.update();
-  }
-
+        obstacle4.obsPosition();
+        obstacle4.update();
+      }
+    }
 
   function moveUp() {
     if(myGamePiece.y >= 10) {
