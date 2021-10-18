@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.17/tailwind.min.css" integrity="sha512-yXagpXH0ulYCN8G/Wl7GK+XIpdnkh5fGHM5rOzG8Kb9Is5Ua8nZWRx5/RaKypcbSHc56mQe0GBG0HQIGTmd8bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+
+    <h1 class="text-4xl text-gray-700 font-light text-center my-10">Rock Paper Scissor</h1>
+    <div id="main" class="max-w-screen-lg mx-auto my-16 bg-gray-100 border border-gray-300" style="height: 700px;">
+
+      <div id="my_choice" class="text-center">
+          <h3 class="text-center my-10 text-2xl font-gray-600 font-light">Make Your Choice</h3>
+
+          <div id="error_wrap" class="max-w-screen-sm mx-auto w-full text-xl font-light my-6 px-4 py-4 bg-red-100 border border-red-300 text-red-600 text-lg font-lifht hidden">
+
+          </div>
+
+          <ul class="text-center mx-auto">
+            <li id="choice_rock" data-choice="rock" class="choice_option list-none w-32 h-32 p-1 rounded-full inline-block cursor-pointer border-2 border-gray-100 hover:border-blue-300 hover:bg-blue-100 transition duration-300 ease-in-out">
+              <img class="w-full h-full" src="assets/rps/rock.png" alt="">
+              <span class="block my-2 text-lg font-light text-gray-500">
+                Rock
+              </span>
+            </li>
+            <li id="choice_paper" data-choice="paper" class="choice_option list-none w-32 h-32 p-1 rounded-full inline-block cursor-pointer border-2 border-gray-100 hover:border-blue-300 hover:bg-blue-100 ransition duration-300 ease-in-out">
+              <img class="w-full h-full" src="assets/rps/paper.png" alt="">
+              <span class="block my-2 text-lg font-light text-gray-500">
+                paper
+              </span>
+            </li>
+            <li id="choice_scissor" data-choice="scissor" class="choice_option list-none w-32 h-32 p-1 rounded-full inline-block cursor-pointer border-2 border-gray-100 hover:border-blue-300 hover:bg-blue-100 ransition duration-300 ease-in-out">
+              <img class="w-full h-full" src="assets/rps/scissor.png" alt="">
+              <span class="block my-2 text-lg font-light text-gray-500">
+                Scissor
+              </span>
+            </li>
+            <li id="choice_lizard" data-choice="lizard" class="choice_option list-none w-32 h-32 p-1 rounded-full inline-block cursor-pointer border-2 border-gray-100 hover:border-blue-300 hover:bg-blue-100 ransition duration-300 ease-in-out">
+              <img class="w-full h-full" src="assets/rps/lizard.png" alt="">
+              <span class="block my-2 text-lg font-light text-gray-500">
+                Lizard
+              </span>
+            </li>
+            <li id="choice_spock" data-choice="spock" class="choice_option list-none w-32 h-32 p-1 rounded-full inline-block cursor-pointer border-2 border-gray-100 hover:border-blue-300 hover:bg-blue-100 ransition duration-300 ease-in-out">
+              <img class="w-full h-full" src="assets/rps/spock.png" alt="">
+              <span class="block my-2 text-lg font-light text-gray-500">
+                Spock
+              </span>
+            </li>
+          </ul>
+
+          <div class="text-center">
+            <button id="play" class="w-20 h-20 my-8 rounded-full bg-blue-700 hover:bg-blue-800 text-white shadow-xl focus:outline-none ransition duration-300 ease-in-out">Play</button>
+          </div>
+
+      </div>
+
+      <div id="result_wrap" class="max-w-screen-sm mx-auto w-full text-xl font-light my-6 px-4 py-4 border text-gray-700 hidden text-center">
+
+      </div>
+
+      <div id="replay_wrap" class="replay text-center hidden">
+          <button id="replay" class="w-20 h-20 my-8 rounded-full bg-red-500 hover:bg-red-600 text-white shadow-xl focus:outline-none ransition duration-300 ease-in-out">Play</button>
+      </div>
+
+
+    </div>
+
+
+    <script src="js/rock-paper-scissor.js" charset="utf-8"></script>
+  </body>
+</html>
